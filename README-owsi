@@ -1,0 +1,17 @@
+=============================
+wiQuery-jqPlot - Version OWSI
+=============================
+
+Modifications du 21/03/2013
+---------------------------------------------------------------------
+Ajout du nom de la série dans le tooltip du highligher
+
+Attention, lors d'une mise à jour de ce projet avec un version plus récente de jqPlot, il est important de transposer
+les modifications faites pour ajouter le nom de la série dans le tooltip du highligher. Ces modifications se trouvent
+dans les fichiers :
+ - components/plugins/jqplot.highlighter.js
+ - components/plugins/jqplot.highlighter.min.js
+ - options/PlotHighlighter.java
+
+Voir https://bitbucket.org/cleonello/jqplot/issue/109/enable-highlighter-tooltip-to-display#comment-390201 pour
+le code ajouté.

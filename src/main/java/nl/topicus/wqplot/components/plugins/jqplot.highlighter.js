@@ -84,6 +84,9 @@
         // so no attributes need set on the renderer directly.
         // Default is to turn off shadow drawing on the highlighted point.
         this.markerRenderer = new $.jqplot.MarkerRenderer({shadow:false});
+        // prop: showLabel
+        // true to show the label
+        this.showLabel = false;
         // prop: showMarker
         // true to show the marker
         this.showMarker  = true;
@@ -252,23 +255,40 @@
                     case 'both':
                     case 'xy':
                         ystrs.unshift(xstr);
+                        if (opts.showLabel) {
+                            ystrs.unshift(neighbor.label);
+                        }
                         ystrs.unshift(opts.formatString);
                         str = $.jqplot.sprintf.apply($.jqplot.sprintf, ystrs);
                         break;
                     case 'yx':
                         ystrs.push(xstr);
+                        if (opts.showLabel) {
+                            ystrs.unshift(neighbor.label);
+                        }
                         ystrs.unshift(opts.formatString);
                         str = $.jqplot.sprintf.apply($.jqplot.sprintf, ystrs);
                         break;
                     case 'x':
-                        str = $.jqplot.sprintf.apply($.jqplot.sprintf, [opts.formatString, xstr]);
+                        if (opts.showLabel) {
+                            str = $.jqplot.sprintf.apply($.jqplot.sprintf, [opts.formatString, neighbor.label, xstr]);
+                        }
+                        else {
+                            str = $.jqplot.sprintf.apply($.jqplot.sprintf, [opts.formatString, xstr]);
+                        }
                         break;
                     case 'y':
+                        if (opts.showLabel) {
+                             ystrs.unshift(neighbor.label);
+                        }
                         ystrs.unshift(opts.formatString);
                         str = $.jqplot.sprintf.apply($.jqplot.sprintf, ystrs);
                         break;
                     default: // same as xy
                         ystrs.unshift(xstr);
+	                    if (opts.showLabel) {
+	                        ystrs.unshift(neighbor.label);
+	                    }
                         ystrs.unshift(opts.formatString);
                         str = $.jqplot.sprintf.apply($.jqplot.sprintf, ystrs);
                         break;
@@ -433,6 +453,9 @@
                     draw(plot, neighbor);
                 }
                 if (hl.showTooltip && (!c || !c._zoom.started)) {
+                    if (hl.showLabel) {
+                        neighbor.label = plot.series[neighbor.seriesIndex].label;
+                    }
                     showTooltip(plot, plot.series[neighbor.seriesIndex], neighbor);
                 }
                 if (hl.bringSeriesToFront) {
@@ -453,6 +476,9 @@
                         draw(plot, neighbor);
                     }
                     if (hl.showTooltip && (!c || !c._zoom.started)) {
+                        if (hl.showLabel) {
+                            neighbor.label = plot.series[neighbor.seriesIndex].label;
+                        }
                         showTooltip(plot, plot.series[neighbor.seriesIndex], neighbor);
                     }
                     if (hl.bringSeriesToFront) {

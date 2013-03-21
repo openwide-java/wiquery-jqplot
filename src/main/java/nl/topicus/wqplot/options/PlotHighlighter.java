@@ -21,6 +21,9 @@ public class PlotHighlighter implements Serializable
 	/** Renderer used to draw the marker of the highlighted point. */
 	private String markerRenderer;
 
+	/** true to add series name in the tooltip. */
+	private Boolean showLabel;
+
 	/** true to show the marker */
 	private Boolean showMarker;
 
@@ -93,6 +96,17 @@ public class PlotHighlighter implements Serializable
 	public PlotHighlighter setMarkerRenderer(String markerRenderer)
 	{
 		this.markerRenderer = markerRenderer;
+		return this;
+	}
+
+	public Boolean getShowLabel()
+	{
+		return showLabel;
+	}
+
+	public PlotHighlighter setShowLabel(Boolean showLabel)
+	{
+		this.showLabel = showLabel;
 		return this;
 	}
 
