@@ -15,3 +15,13 @@ dans les fichiers :
 
 Voir https://bitbucket.org/cleonello/jqplot/issue/109/enable-highlighter-tooltip-to-display#comment-390201 pour
 le code ajouté.
+
+
+
+Modifications du 02/07/2013
+---------------------------------------------------------------------
+Montée de version des sources jQPlot de la 1.0.4 à la 1.0.8, notamment pour garantir la compatibilité avec jQuery 1.0.9+.
+
+La principale modification concerne la suppression d'un référence à '$.browser' qui a disparu dans jQuery 1.0.9.
+
+Voir https://bitbucket.org/cleonello/jqplot/issue/710/compatibility-with-jquery-v19 pour la modification.
