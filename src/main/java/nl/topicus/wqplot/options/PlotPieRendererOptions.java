@@ -48,6 +48,12 @@ public class PlotPieRendererOptions extends PlotSeriesRendererOptions
 	 */
 	private Integer shadowDepth;
 
+	private Boolean showDataLabels;
+
+	private PlotDataLabels dataLabels;
+
+	private Double lineWidth;
+
 	public PlotPieRendererOptions()
 	{
 	}
@@ -126,6 +132,39 @@ public class PlotPieRendererOptions extends PlotSeriesRendererOptions
 	public PlotPieRendererOptions setShadowDepth(Integer shadowDepth)
 	{
 		this.shadowDepth = shadowDepth;
+		return this;
+	}
+
+	public Boolean getShowDataLabels()
+	{
+		return showDataLabels;
+	}
+
+	public PlotPieRendererOptions setShowDataLabels(Boolean showDataLabels)
+	{
+		this.showDataLabels = showDataLabels;
+		return this;
+	}
+
+	public PlotDataLabels getDataLabels()
+	{
+		return dataLabels;
+	}
+
+	public PlotPieRendererOptions setDataLabels(PlotDataLabels dataLabels)
+	{
+		this.dataLabels = dataLabels;
+		return this;
+	}
+
+	public Double getLineWidth()
+	{
+		return lineWidth;
+	}
+
+	public PlotPieRendererOptions setLineWidth(Double lineWidth)
+	{
+		this.lineWidth = lineWidth;
 		return this;
 	}
 }
