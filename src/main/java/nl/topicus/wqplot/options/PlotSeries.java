@@ -57,6 +57,12 @@ public class PlotSeries implements Serializable
 	private String color;
 
 	/**
+	 * css color spec used for filled (area) plots that are filled to zero and the
+	 * "useNegativeColors" option is true.
+	 */
+	private String negativeColor;
+
+	/**
 	 * Width of the line in pixels.
 	 */
 	private Double lineWidth;
@@ -279,6 +285,17 @@ public class PlotSeries implements Serializable
 	public PlotSeries setColor(String color)
 	{
 		this.color = color;
+		return this;
+	}
+
+	public String getNegativeColor()
+	{
+		return negativeColor;
+	}
+
+	public PlotSeries setNegativeColor(String negativeColor)
+	{
+		this.negativeColor = negativeColor;
 		return this;
 	}
 
