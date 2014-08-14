@@ -57,6 +57,11 @@ public class PlotOptions implements Serializable
 	private List<String> seriesColors;
 
 	/**
+	 * colors to use for portions of the line below zero.
+	 */
+	private List<String> negativeSeriesColors;
+
+	/**
 	 * false to not sort the data passed in by the user. Many bar, stakced and other
 	 * graphs as well as many plugins depend on having sorted data.
 	 */
@@ -193,6 +198,19 @@ public class PlotOptions implements Serializable
 	public PlotOptions setSeriesColors(List<String> seriesColors)
 	{
 		this.seriesColors = seriesColors;
+		return this;
+	}
+
+	public List<String> getNegativeSeriesColors()
+	{
+		if (negativeSeriesColors == null)
+			negativeSeriesColors = new ArrayList<String>();
+		return seriesColors;
+	}
+
+	public PlotOptions setNegativeSeriesColors(List<String> seriesColors)
+	{
+		this.negativeSeriesColors = seriesColors;
 		return this;
 	}
 
