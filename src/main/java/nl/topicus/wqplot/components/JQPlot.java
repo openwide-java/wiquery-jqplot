@@ -27,12 +27,13 @@ import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.protocol.http.WebSession;
 import org.apache.wicket.protocol.http.request.WebClientInfo;
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 import org.odlabs.wiquery.core.javascript.JsStatement;
+
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 public class JQPlot extends WebMarkupContainer implements IPluginResolver
 {
@@ -181,7 +182,7 @@ public class JQPlot extends WebMarkupContainer implements IPluginResolver
 
 	/**
 	 * Allows to register a new plugin.
-	 * 
+	 *
 	 * @param iPlugin
 	 */
 	public void registerPlugin(IPlugin iPlugin)
@@ -193,7 +194,7 @@ public class JQPlot extends WebMarkupContainer implements IPluginResolver
 
 	/**
 	 * Allows to register a new resolver.
-	 * 
+	 *
 	 * @param resolver
 	 */
 	public void registerPluginResolver(IPluginResolver resolver)
@@ -217,7 +218,7 @@ public class JQPlot extends WebMarkupContainer implements IPluginResolver
 	public JsStatement statement()
 	{
 		ObjectMapper mapper = new ObjectMapper();
-		mapper.setSerializationInclusion(Inclusion.NON_NULL);
+		mapper.setSerializationInclusion(Include.NON_NULL);
 		String optionsStr = "{}";
 		String plotDataStr = "[]";
 		try
