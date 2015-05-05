@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 import nl.topicus.wqplot.components.plugins.IRenderer;
 
-import org.codehaus.jackson.annotate.JsonAutoDetect;
-import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
@@ -144,7 +144,7 @@ public class PlotSeries implements Serializable
 	 * true to not stack this series with other series in the plot. To render properly,
 	 * non-stacked series must come after any stacked series in the plot’s data series
 	 * array. So, the plot’s data series array would look like:
-	 * 
+	 *
 	 * [stackedSeries1, stackedSeries2, ..., nonStackedSeries1, nonStackedSeries2, ...]
 	 * disableStack will put a gap in the stacking order of series, and subsequent stacked
 	 * series will not fill down through the non-stacked series and will most likely not
