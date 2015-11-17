@@ -36,11 +36,11 @@
 		<maven-source-plugin.version>2.1.2</maven-source-plugin.version>
 	</properties>
 
-	<url>https://github.com/hielkehoeve/wiquery-jqplot/wiki</url>
+	<url>https://github.com/wicketstuff/wiquery-jqplot/</url>
 	<scm>
-		<url>git@github.com:hielkehoeve/wiquery-jqplot.git</url>
-		<connection>scm:git:git@github.com:hielkehoeve/wiquery-jqplot.git</connection>
-		<developerConnection>scm:git:git@github.com:hielkehoeve/wiquery-jqplot.git</developerConnection>
+		<url>git@github.com:wicketstuff/wiquery-jqplot.git</url>
+		<connection>scm:git:git@github.com:wicketstuff/wiquery-jqplot.git</connection>
+		<developerConnection>scm:git:git@github.com:wicketstuff/wiquery-jqplot.git</developerConnection>
 	</scm>
 	
 	<developers>
