@@ -10,14 +10,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import nl.topicus.wqplot.components.plugins.DefaultPlugins;
-import nl.topicus.wqplot.components.plugins.IPlugin;
-import nl.topicus.wqplot.components.plugins.IPluginResolver;
-import nl.topicus.wqplot.components.plugins.JQPlotCanvasTextRendererResourceReference;
-import nl.topicus.wqplot.data.Series;
-import nl.topicus.wqplot.options.PlotOptions;
-import nl.topicus.wqplot.options.PluginReferenceSerializer;
-
 import org.apache.wicket.core.request.ClientInfo;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
@@ -27,13 +19,21 @@ import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.protocol.http.WebSession;
 import org.apache.wicket.protocol.http.request.WebClientInfo;
-import org.odlabs.wiquery.core.javascript.JsStatement;
+import org.wicketstuff.wiquery.core.javascript.JsStatement;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import nl.topicus.wqplot.components.plugins.DefaultPlugins;
+import nl.topicus.wqplot.components.plugins.IPlugin;
+import nl.topicus.wqplot.components.plugins.IPluginResolver;
+import nl.topicus.wqplot.components.plugins.JQPlotCanvasTextRendererResourceReference;
+import nl.topicus.wqplot.data.Series;
+import nl.topicus.wqplot.options.PlotOptions;
+import nl.topicus.wqplot.options.PluginReferenceSerializer;
 
 public class JQPlot extends WebMarkupContainer implements IPluginResolver
 {
@@ -99,11 +99,11 @@ public class JQPlot extends WebMarkupContainer implements IPluginResolver
 		// wiQueryResourceManager.addJavaScriptResource(JQPlotJavaScriptResourceReference.get());
 		// wiQueryResourceManager.addCssResource(JQPlotStyleSheetResourceReference.get());
 		// wiQueryResourceManager.addJavaScriptResource(JQPlotCanvasTextRendererResourceReference.get());
-		headerResponse.render(JavaScriptHeaderItem.forReference(JQPlotJavaScriptResourceReference
-			.get()));
+		headerResponse
+			.render(JavaScriptHeaderItem.forReference(JQPlotJavaScriptResourceReference.get()));
 		headerResponse.render(CssHeaderItem.forReference(JQPlotStyleSheetResourceReference.get()));
-		headerResponse.render(JavaScriptHeaderItem
-			.forReference(JQPlotCanvasTextRendererResourceReference.get()));
+		headerResponse.render(
+			JavaScriptHeaderItem.forReference(JQPlotCanvasTextRendererResourceReference.get()));
 
 		headerResponse.render(OnDomReadyHeaderItem.forScript(statement().render()));
 
@@ -161,8 +161,8 @@ public class JQPlot extends WebMarkupContainer implements IPluginResolver
 		if (plugins.containsKey(plugin))
 		{
 			// wiQueryResourceManager.addJavaScriptResource(getPlugin(plugin).getJavaScriptResourceReference());
-			headerResponse.render(JavaScriptHeaderItem.forReference(getPlugin(plugin)
-				.getJavaScriptResourceReference()));
+			headerResponse.render(JavaScriptHeaderItem
+				.forReference(getPlugin(plugin).getJavaScriptResourceReference()));
 			return;
 		}
 
@@ -172,8 +172,8 @@ public class JQPlot extends WebMarkupContainer implements IPluginResolver
 			if (iPlugin != null)
 			{
 				// wiQueryResourceManager.addJavaScriptResource(iPlugin.getJavaScriptResourceReference());
-				headerResponse.render(JavaScriptHeaderItem.forReference(iPlugin
-					.getJavaScriptResourceReference()));
+				headerResponse.render(
+					JavaScriptHeaderItem.forReference(iPlugin.getJavaScriptResourceReference()));
 				return;
 			}
 		}
