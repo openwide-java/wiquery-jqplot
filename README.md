@@ -1,3 +1,8 @@
+Discontinued
+============
+This repository is no longer actively maintained. Please take a look at [Kobalt's fork](https://github.com/igloo-project/wiquery-jqplot) or the [original repo](https://github.com/wicketstuff/wiquery-jqplot).
+
+
 Topicus WqPlot
 ======================
 
